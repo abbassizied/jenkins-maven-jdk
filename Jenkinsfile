@@ -14,14 +14,7 @@
         }       
         stage('Testing Maven Installation') {
             steps {
-                withMaven(
-                    // Maven installation declared in the Jenkins "Global Tool Configuration"
-                    maven: 'maven-3',
-                    // Maven settings.xml
-                    mavenSettingsConfig: 'my-maven-settings') {
-                        // Run the maven build
-                        sh "mvn clean verify"
-                    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
+                sh "mvn --version"
             }
         } 
         stage('What\'s next?') {
