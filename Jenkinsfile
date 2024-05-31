@@ -13,8 +13,9 @@
             }
         }       
         stage('Testing Maven Installation') {
+            def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
             steps {
-               sh "mvn -v"
+               sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
             }
         } 
         stage('What\'s next?') {
