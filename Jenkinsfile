@@ -14,10 +14,14 @@
         }       
         stage('Testing Maven Installation') {
             steps {
-                script {
-                    def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
-                    sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
-                }
+                withMaven(
+                    // Maven installation declared in the Jenkins "Global Tool Configuration"
+                    maven: 'maven-3',
+                    // Maven settings.xml
+                    mavenSettingsConfig: 'my-maven-settings') {
+                        // Run the maven build
+                        sh "mvn clean verify"
+                    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
             }
         } 
         stage('What\'s next?') {
