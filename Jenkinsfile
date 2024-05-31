@@ -12,6 +12,11 @@
                sh "mvn -v"
             }
         }
+        stage('Testing OpenJDK Installation') {
+            steps {
+               sh "which java"
+            }
+        }        
         stage('What\'s next?') {
             steps {
                 echo 'What\'s next?' 
