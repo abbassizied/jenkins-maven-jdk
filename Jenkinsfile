@@ -10,7 +10,7 @@
         stage('Testing OpenJDK Installation') {
             steps {
                sh "which java"
-               sg "java --version"
+               sh "java -version"
             }
         }       
         stage('Testing Maven Installation') {
