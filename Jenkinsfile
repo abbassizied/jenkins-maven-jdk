@@ -16,7 +16,7 @@
         stage('Testing Maven Installation') {
             steps {
                 withMaven {
-					sh "mvn --version"
+				    sh "mvn --version"
                 } 
             }
         } 
