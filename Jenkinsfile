@@ -1,6 +1,9 @@
  pipeline {
     agent any 
-  
+    tools {
+        maven 'maven397'
+    }
+	 
     stages {
         stage('Checkout') {
             steps {
@@ -16,7 +19,7 @@
         stage('Testing Maven Installation') {
             steps {
                 withMaven {
-				    sh "mvn --version"
+		    sh "mvn --version"
                 } 
             }
         } 
